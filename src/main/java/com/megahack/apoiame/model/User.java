@@ -148,7 +148,6 @@ public class User {
   }
 
   @Column(name = "updatedAt", nullable = true)
-
   public LocalDateTime getUpdatedAt() {
     return updatedAt;
   }
