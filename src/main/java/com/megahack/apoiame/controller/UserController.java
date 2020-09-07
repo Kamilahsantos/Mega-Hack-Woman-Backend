@@ -1,8 +1,6 @@
 package com.megahack.apoiame.controller;
 
-import com.megahack.apoiame.model.Network;
 import com.megahack.apoiame.model.User;
-import com.megahack.apoiame.repository.NetworkRepository;
 import com.megahack.apoiame.repository.UserRepository;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
