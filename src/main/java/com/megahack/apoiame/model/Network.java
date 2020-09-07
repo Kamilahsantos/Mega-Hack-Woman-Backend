@@ -1,6 +1,8 @@
 package com.megahack.apoiame.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "network")
@@ -22,7 +24,7 @@ public class Network {
 
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   public Long getId() {
     return id;
   }
@@ -31,7 +33,9 @@ public class Network {
     this.id = id;
   }
 
-  @Column(name = "name", nullable = false)
+  @Column(name = "name",  length = 255,  nullable = false)
+  @NotNull(message = "Please input a name")
+  @Size(max = 255)
   public String getName() {
     return name;
   }
@@ -40,7 +44,9 @@ public class Network {
     this.name = name;
   }
 
-  @Column(name = "area", nullable = false)
+  @Column(name = "area",length = 255,  nullable = false)
+  @NotNull(message = "Please input a area")
+  @Size(max = 255)
   public String getArea() {
     return area;
   }
@@ -48,7 +54,11 @@ public class Network {
   public void setArea(String area) {
     this.area = area;
   }
-  @Column(name = "address", nullable = false)
+
+
+  @Column(name = "address",length = 255,  nullable = false)
+  @NotNull(message = "Please input a address ")
+  @Size(max = 255)
   public String getAddress() {
     return address;
   }
@@ -57,7 +67,9 @@ public class Network {
     this.address = address;
   }
 
-  @Column(name = "companyName", nullable = false)
+  @Column(name = "companyName", length = 255, nullable = false)
+  @NotNull(message = "Please input a companyName ")
+  @Size(max = 255)
   public String getCompanyName() {
     return companyName;
   }
@@ -66,7 +78,9 @@ public class Network {
     this.companyName = companyName;
   }
 
-  @Column(name = "job", nullable = false)
+  @Column(name = "job",length = 255,  nullable = false)
+  @NotNull(message = "Please input a job ")
+  @Size(max = 255)
   public String getJob() {
     return job;
   }
@@ -75,7 +89,9 @@ public class Network {
     this.job = job;
   }
 
-  @Column(name = "jobDescription", nullable = false)
+  @Column(name = "jobDescription", length = 255,  nullable = false)
+  @NotNull(message = "Please input a jobDescription ")
+  @Size(max = 255)
   public String getJobDescription() {
     return jobDescription;
   }
