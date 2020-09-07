@@ -19,7 +19,7 @@ public class NetworkController {
   @Autowired
   private NetworkRepository networkRepository;
 
-  @ApiOperation(value = "Create a new network information created")
+  @ApiOperation(value = "Create a new network information ")
   @ApiResponses(value = {
     @ApiResponse(code = 201, message = "successfully network information created"),
     @ApiResponse(code = 500, message = "an internal error occurred, it was not possible to complete this request")
