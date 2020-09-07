@@ -1,8 +1,6 @@
 package com.megahack.apoiame.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "content")
@@ -14,7 +12,7 @@ public class Content {
   private String link;
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   public Long getId() {
     return id;
   }
@@ -23,9 +21,7 @@ public class Content {
     this.id = id;
   }
 
-  @Column(name = "title",  length = 255, nullable = false)
-  @NotNull(message = "Please input a name")
-  @Size(max = 255)
+  @Column(name = "title", nullable = false)
   public String getTitle() {
     return title;
   }
@@ -34,9 +30,7 @@ public class Content {
     this.title = title;
   }
 
-  @Column(name = "description", length = 255, nullable = false)
-  @NotNull(message = "Please input a description")
-  @Size(max = 255)
+  @Column(name = "description", nullable = false)
   public String getDescription() {
     return description;
   }
@@ -45,9 +39,7 @@ public class Content {
     this.description = description;
   }
 
-  @Column(name = "link", length = 255, nullable = false)
-  @NotNull(message = "Please input a link")
-  @Size(max = 255)
+  @Column(name = "link", nullable = false)
   public String getLink() {
     return link;
   }
