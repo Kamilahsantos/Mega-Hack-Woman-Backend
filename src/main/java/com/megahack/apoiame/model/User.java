@@ -1,6 +1,11 @@
 package com.megahack.apoiame.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -12,7 +17,7 @@ public class User {
 
   private Long id;
 
-  private String email;
+    private String email;
 
   private String name;
 
@@ -34,7 +39,7 @@ public class User {
   private LocalDateTime updatedAt;
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   public Long getId() {
     return id;
   }
@@ -43,7 +48,9 @@ public class User {
     this.id = id;
   }
 
-  @Column(name = "email", nullable = false)
+  @Column(name = "email", length = 255, nullable = false)
+  @NotNull(message = "Please input a email")
+  @Size(max = 255)
   public String getEmail() {
     return email;
   }
@@ -52,7 +59,9 @@ public class User {
     this.email = email;
   }
 
-  @Column(name = "name", nullable = false)
+  @Column(name = "name", length = 255, nullable = false)
+  @NotNull(message = "Please input a name")
+  @Size(max = 255)
   public String getName() {
     return name;
   }
@@ -61,7 +70,9 @@ public class User {
     this.name = name;
   }
 
-  @Column(name = "surname", nullable = false)
+  @Column(name = "surname", length = 255,  nullable = false)
+  @NotNull(message = "Please input a surname")
+  @Size(max = 255)
   public String getSurname() {
     return surname;
   }
@@ -70,7 +81,9 @@ public class User {
     this.surname = surname;
   }
 
-  @Column(name = "username", nullable = false)
+  @Column(name = "username", length = 255,  nullable = false)
+  @NotNull(message = "Please input a username")
+  @Size(max = 255)
   public String getUsername() {
     return username;
   }
@@ -79,7 +92,9 @@ public class User {
     this.username = username;
   }
 
-  @Column(name = "password", nullable = false)
+  @Column(name = "password", length = 255, nullable = false)
+  @NotNull(message = "Please input a password")
+  @Size(max = 255)
   public String getPassword() {
     return password;
   }
@@ -88,7 +103,9 @@ public class User {
     this.password = password;
   }
 
-  @Column(name = "birthDate", nullable = false)
+  @Column(name = "birthDate",length = 255,  nullable = false)
+  @NotNull(message = "Please input a birthDate")
+  @Size(max = 255)
   public Date getBirthDate() {
     return birthDate;
   }
@@ -97,7 +114,9 @@ public class User {
     this.birthDate = birthDate;
   }
 
-  @Column(name = "state", nullable = false)
+  @Column(name = "state", length = 255,  nullable = false)
+  @NotNull(message = "Please input a state")
+  @Size(max = 255)
   public String getState() {
     return state;
   }
@@ -106,7 +125,9 @@ public class User {
     this.state = state;
   }
 
-  @Column(name = "city", nullable = false)
+  @Column(name = "city", length = 255, nullable = false)
+  @NotNull(message = "Please input a city")
+  @Size(max = 255)
   public String getCity() {
     return city;
   }
@@ -115,7 +136,9 @@ public class User {
     this.city = city;
   }
 
-  @Column(name = "created_at", nullable = true)
+  @Column(name = "created_at", updatable = false)
+  @CreatedDate
+  @CreationTimestamp
   public LocalDateTime getCreated_at() {
     return created_at;
   }
